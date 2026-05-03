@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodtracker </title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <section id="auth-section" class="card">
+            <h1>Welcome to MoodTracker 🌿</h1>
+            <p>Please log in or sign up to continue.</p>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Username" />
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" />
+            </div>
+            <div class="button-group">
+                <button id="login-btn" class="btn primary">Login</button>
+                <button id="signup-btn" class="btn secondary">Sign Up</button>
+            </div>
+            <p id="auth-message" class="message error-msg"></p>
+        </section>
+
+        
+        <section id="dashboard-section" class="hidden">
+            <header class="dashboard-header card">
+                <h2>Hello, <span id="display-username">Student</span>! 👋</h2>
+                <button id="logout-btn" class="btn outline">Logout</button>
+            </header>
+
+            <div class="dashboard-grid">
+                
+                <div class="card input-area">
+                    <h3>How are you feeling today?</h3>
+                    <div class="emoji-selector" id="emoji-selector">
+                        <button class="emoji-btn" data-mood="5" data-emoji="😊" title="Happy">😊</button>
+                        <button class="emoji-btn" data-mood="4" data-emoji="⚡" title="Energetic">⚡</button>
+                        <button class="emoji-btn" data-mood="3" data-emoji="😐" title="Neutral">😐</button>
+                        <button class="emoji-btn" data-mood="2" data-emoji="😰" title="Anxious">😰</button>
+                        <button class="emoji-btn" data-mood="1" data-emoji="😔" title="Sad">😔</button>
+                    </div>
+                    
+                    <h3>Reflect on your day</h3>
+                    <textarea id="journal-entry" placeholder="Write a brief reflection..."></textarea>
+                    
+                    <button id="save-entry-btn" class="btn primary full-width">Save Entry</button>
+                    <p id="entry-message" class="message"></p>
+                </div>
+
+                
+                <div class="card music-area">
+                    <h3>Mood Playlist 🎵</h3>
+                    <p>Paste a YouTube video or playlist URL for your current mood:</p>
+                    <div class="input-group flex-row">
+                        <input type="text" id="youtube-url" placeholder="https://youtube.com/..." />
+                        <button id="load-yt-btn" class="btn secondary">Load</button>
+                    </div>
+                    <div id="yt-container" class="video-container">
+                        <p class="placeholder-text">Your music will appear here.</p>
+                    </div>
+                </div>
+
+                
+                <div class="card chart-area">
+                    <h3>Mood Trend (Last 7 Entries)</h3>
+                    <canvas id="moodChart"></canvas>
+                </div>
+
+                
+                <div class="card history-area">
+                    <h3>Entry History</h3>
+                    <div class="table-container">
+                        <table id="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Mood</th>
+                                    <th>Reflection</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
